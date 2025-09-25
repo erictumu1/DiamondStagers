@@ -186,12 +186,12 @@
 
 @media screen and (max-width: 768px) {
   .navbaritems {
-    height: 110px;
+    height: 90px;
     margin-top: -10px;
     width: 100vw;
   }
   .logo-wrapper img {
-    width: 80px;
+    width: 60px;
     height: auto;
   }
   .home-text {

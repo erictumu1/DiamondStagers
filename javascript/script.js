@@ -111,8 +111,9 @@ function rotateBanner() {
 
 setInterval(rotateBanner, 6000);
 
-//Scroll animation for about section
+//Scroll animation for about and servcies section
 const timelineItems = document.querySelectorAll(".timeline-content");
+const serviceItems = document.querySelectorAll(".service-card");
 
 function revealOnScroll() {
     const triggerBottom = window.innerHeight * 0.85;
@@ -121,15 +122,28 @@ function revealOnScroll() {
         const boxTop = item.getBoundingClientRect().top;
         const boxBottom = item.getBoundingClientRect().bottom;
 
-        // Add class when in view
         if (boxTop < triggerBottom && boxBottom > 100) {
             item.classList.add("show");
         } else {
-            // Remove class when out of view (so it replays)
             item.classList.remove("show");
         }
     });
+
+    serviceItems.forEach(card => {
+        const boxTop = card.getBoundingClientRect().top;
+        const boxBottom = card.getBoundingClientRect().bottom;
+
+        if (boxTop < triggerBottom && boxBottom > 100) {
+            card.classList.add("show");
+        } else {
+            card.classList.remove("show");
+        }
+    });
 }
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
 
 window.addEventListener("scroll", revealOnScroll);
 
