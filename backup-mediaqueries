@@ -235,7 +235,7 @@
     gap: 1rem;
   }
   .overlay {
-    top: 560px;
+    top: 565px;
     left: 110px;
   }
   .mobile {

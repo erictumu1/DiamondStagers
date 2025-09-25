@@ -84,16 +84,22 @@ const bannerImages = [
     "media/banner5.JPG",
     "media/banner6.JPG",
     "media/banner7.JPG"
-
 ];
 
 let current = 0;
-
-const home = document.querySelector(".home");
 const bgEls = document.querySelectorAll(".home-bg");
 
-bgEls[0].classList.add("active");
-bgEls[0].style.backgroundImage = `url("${bannerImages[current]}")`;
+// Initially load the first image
+preloadImage(bannerImages[current], (imgUrl) => {
+    bgEls[0].style.backgroundImage = `url("${imgUrl}")`;
+    bgEls[0].classList.add("active");
+});
+
+function preloadImage(src, callback) {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => callback(src); // only apply after loaded
+}
 
 function rotateBanner() {
     const nextIndex = (current + 1) % bannerImages.length;
@@ -101,12 +107,15 @@ function rotateBanner() {
     const active = bgEls[current % 2];
     const next = bgEls[(current + 1) % 2];
 
-    next.style.backgroundImage = `url("${bannerImages[nextIndex]}")`;
+    // preload next image before showing it
+    preloadImage(bannerImages[nextIndex], (imgUrl) => {
+        next.style.backgroundImage = `url("${imgUrl}")`;
 
-    active.classList.remove("active");
-    next.classList.add("active");
+        active.classList.remove("active");
+        next.classList.add("active");
 
-    current = nextIndex;
+        current = nextIndex;
+    });
 }
 
 setInterval(rotateBanner, 6000);
