@@ -320,6 +320,9 @@ section h2 {
   background: #f9f9f9;
   min-width: 100vw;
 }
+.about-break-tags {
+  background-color: #f9f9f9;
+}
 br.line {
   border: 10px solid green;
 }
