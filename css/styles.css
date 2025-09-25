@@ -253,7 +253,7 @@ header {
   content: "↓";
   position: absolute;
   top: 5px;
-  left: 10px;
+  left: 8px;
   font-size: 1.2rem;
   color: white;
 }
