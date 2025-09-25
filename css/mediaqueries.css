@@ -185,6 +185,15 @@
 }
 
 @media screen and (max-width: 768px) {
+  .scroll-down::before {
+    content: "↓";
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    font-size: 1.2rem;
+    color: white;
+  }
+
   .navbaritems {
     height: 90px;
     margin-top: -10px;
