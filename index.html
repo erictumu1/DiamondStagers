@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond Stagers</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/media/diamond-staggers-logo1.png"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/mediaqueries.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header" id="desktop-nav">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img class="logo" src="/media/diamond-staggers-logo.png" alt="" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="navbaritems">
+      <nav id="hamburger-nav">
+        <div class="logo-wrapper">
+          <img class="logo" src="/media/diamond-staggers-logo.png" alt="" />
+        </div>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="togglemenu()">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="menu-links">
+            <ul>
+              <li>
+                <a href="#home" class="nav-link" onclick="togglemenu()">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="nav-link" onclick="togglemenu()"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="nav-link" onclick="togglemenu()"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="nav-link" onclick="togglemenu()"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <main>
+      <section class="home" id="home">
+        <div class="home-bg"></div>
+        <div class="home-bg"></div>
+        <div class="home-overlay"></div>
+
+        <div class="container home-grid">
+          <div class="home-text">
+            <h1>DIAMOND STAGERS</h1>
+            <p>Home Staging, Interior Design & Curated Home Furnishings</p>
+            <a class="btn request-quote" href="#contact">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="scroll-down"></div>
+      </section>
+
+      <div id="about"></div>
+
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-header">
+            <h2>About Us</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content left">
+                <img src="media/banner1.jpg" alt="About image" />
+                <div class="text-box">
+                  <h2>Our Beginnings</h2>
+                  <p>
+                    Diamond Stagers started over a decade ago, designing
+                    residential spaces with a passion for detail and timeless
+                    beauty.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-content right">
+                <div class="text-box">
+                  <h2>Expanding Horizons</h2>
+                  <p>
+                    We extended into commercial interiors, creating functional
+                    and stylish spaces for businesses across the region.
+                  </p>
+                </div>
+                <img src="media/banner2.jpg" alt="About image" />
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-content left">
+                <img src="media/banner3.jpg" alt="About image" />
+                <div class="text-box">
+                  <h2>Our Philosophy</h2>
+                  <p>
+                    Every project blends durability with aesthetics, ensuring
+                    our designs stand the test of time while reflecting clients’
+                    lifestyles.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-content right">
+                <div class="text-box">
+                  <h2>Looking Ahead</h2>
+                  <p>
+                    With innovation and sustainability, we continue shaping
+                    interiors that enable you to land archieve yoru desired sale
+                    goal.
+                  </p>
+                </div>
+                <img src="media/banner4.jpg" alt="About image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="services"></div>
+      <br /><br />
+
+      <section class="services" id="services">
+        <div class="container">
+          <div class="services-header">
+            <h2>Services</h2>
+            <!-- <a href="#" class="view-all">VIEW ALL SERVICES →</a> -->
+          </div>
+
+          <div class="services-list">
+            <article class="service-card">
+              <img src="media/banner.jpg" alt="Home Staging" />
+              <h3>Home Staging</h3>
+              <p>
+                Professional home staging for both vacant and occupied homes.
+                Our staging services are designed to highlight the best features
+                of your property to make it more appealing to potential buyers.
+                We will help you maximize the value of your property.
+              </p>
+              <!-- <a href="#" class="view-more">VIEW MORE</a> -->
+            </article>
+
+            <article class="service-card">
+              <img src="media/banner1.jpg" alt="Interior Design" />
+              <h3>Interior Design</h3>
+              <p>
+                Our team of expert interior designers will work with you to
+                create a home that reflects your personality and lifestyle. From
+                modern living room ideas to classic dining room setups, we bring
+                your vision to life.
+              </p>
+              <!-- <a href="#" class="view-more">VIEW MORE</a> -->
+            </article>
+
+            <article class="service-card">
+              <img src="media/banner2.jpg" alt="Home Furnishing" />
+              <h3>Home Furnishing</h3>
+              <p>
+                Transform your living space with our home furnishing service.
+                Whether revamping your living room, bedroom, dining room, or
+                office, we offer a wide range of quality furniture and décor to
+                suit your needs.
+              </p>
+              <!-- <a href="#" class="view-more">VIEW MORE</a> -->
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-form" id="contact">
+        <br /><br />
+        <h2 class="contact-me">Ready to transform your space?</h2>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <div class="input-box fadein">
+            <input
+              type="text"
+              name="full_name"
+              placeholder="Enter your full names here"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email here"
+              required
+            />
+          </div>
+          <div class="input-box fadein">
+            <input
+              type="number"
+              name="phone_number"
+              placeholder="Enter your phone number here"
+              required
+            />
+            <input type="text" name="subject" placeholder="subject" required />
+          </div>
+          <input
+            type="hidden"
+            name="access_key"
+            value="874c06d7-d0b9-445d-8a2b-63548082bc09"
+            required
+          />
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+            class="fadein"
+            required
+          ></textarea>
+          <input type="submit" value="Send Message" class="btn-1 fadein" />
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <a href="index.html">
+            <img
+              src="/media/diamond-staggers-logo.png"
+              alt="Diamond Stagers Logo"
+              class="footer-logo"
+            />
+          </a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="https://www.facebook.com/diamondstagers/" target="_blank">
+              <i class="bx bxl-facebook"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/diamondd.stagers/?hl=en"
+              target="_blank"
+            >
+              <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@diamondstagers" target="_blank">
+              <i class="bx bxl-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <p><i class="bx bx-phone"></i> +1 (905) 226-0226</p>
+          <p><i class="bx bx-envelope"></i> diamondstagers@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p
+          >&copy; 2010 - <span id="year"></span>
+          <span class="footer-name">Diamond Stagers</span>. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="javascript/script.js"></script>
+  </body>
+</html>
