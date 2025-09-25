@@ -171,6 +171,17 @@
   .timeline-content .text-box {
     max-width: 100%;
   }
+  .footer-container {
+    display: none;
+  }
+  .mobile {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -207,9 +218,8 @@
   .timeline-content {
     gap: 1rem;
   }
-  .footer-col .social .instagram,
-  .footer-col .social .facebook {
-    margin-bottom: 10px;
+  .mobile {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

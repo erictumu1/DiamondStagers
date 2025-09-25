@@ -79,7 +79,12 @@ const bannerImages = [
     "media/banner.jpg",
     "media/banner1.jpg",
     "media/banner2.jpg",
-    "media/banner3.jpg"
+    "media/banner3.jpg",
+    "media/banner4.JPG",
+    "media/banner5.JPG",
+    "media/banner6.JPG",
+    "media/banner7.JPG"
+
 ];
 
 let current = 0;
