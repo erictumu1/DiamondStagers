@@ -34,6 +34,9 @@ function togglemenu() {
     icon.classList.toggle("open");
 }
 
+checkFade();
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuItems = document.querySelectorAll(".navbar li a, .scroll-down");
     const sections = document.querySelectorAll("section");
