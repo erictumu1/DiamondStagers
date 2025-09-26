@@ -24,7 +24,7 @@ function togglemenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const menuItems = document.querySelectorAll(".navbar li a");
+    const menuItems = document.querySelectorAll(".navbar li a, .scroll-down");
     const sections = document.querySelectorAll("section");
 
     function setActiveLink() {
@@ -169,6 +169,50 @@ document.querySelectorAll(".request-quote").forEach(button => {
         }
     });
 });
+
+//Lightbox logic
+document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".masonry-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.querySelector(".lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    let currentIndex = 0;
+
+    function showLightbox(index) {
+        lightbox.style.display = "block";
+        lightboxImg.src = items[index].src;
+        currentIndex = index;
+    }
+
+    items.forEach((img, index) => {
+        img.addEventListener("click", () => showLightbox(index));
+    });
+
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        lightboxImg.src = items[currentIndex].src;
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        lightboxImg.src = items[currentIndex].src;
+    });
+
+    // Close when clicking outside image
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+});
+
 
 
 document.getElementById("year").textContent = new Date().getFullYear();
