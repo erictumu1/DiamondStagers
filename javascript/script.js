@@ -273,6 +273,38 @@ lightboxImg.addEventListener("touchend", () => {
     }
 });
 
+function showLightbox(index) {
+    lightboxImg.src = items[index].src;
+    currentIndex = index;
+
+    lightbox.classList.add("show");
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("show");
+
+    setTimeout(() => {
+        if (!lightbox.classList.contains("show")) {
+            lightbox.style.display = "none";
+        }
+    }, 400);
+}
+
+items.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        requestAnimationFrame(() => showLightbox(index));
+    });
+});
+
+closeBtn.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
 
 //Script for successfully form submission pop up
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
@@ -294,7 +326,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
         if (result.success) {
             form.reset();
 
-            // Reset + show success popup
             successPopup.classList.remove("hide");
             successPopup.classList.add("show");
 
@@ -304,7 +335,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
             }, 3000);
 
         } else {
-            // Show error popup
             errorPopup.classList.remove("hide");
             errorPopup.classList.add("show");
 
@@ -314,7 +344,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
             }, 3000);
         }
     } catch (error) {
-        // Show error popup if fetch fails
         errorPopup.classList.remove("hide");
         errorPopup.classList.add("show");
 
