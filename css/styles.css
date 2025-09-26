@@ -254,7 +254,6 @@ header {
 .hamburger-icon,
 .menu-links {
   z-index: 10001;
-  position: relative;
 }
 /*home Section */
 .home {
