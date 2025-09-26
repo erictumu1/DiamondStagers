@@ -351,5 +351,3 @@ document.getElementById("contactForm").addEventListener("submit", async function
         }, 3000);
     }
 });
-
-document.getElementById("year").textContent = new Date().getFullYear();
