@@ -121,10 +121,11 @@ header {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  z-index: 9999;
 }
 #hamburger-nav {
   position: relative;
-  z-index: 10000;
+  z-index: 9999;
 }
 .hamburger-icon {
   display: flex;
@@ -147,7 +148,7 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.4s ease, opacity 0.4s ease;
-  z-index: 2000;
+  z-index: 9999;
 }
 
 .menu-links.show {
