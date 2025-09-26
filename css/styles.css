@@ -64,7 +64,7 @@ header {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 20px 0;
-  z-index: 2;
+  z-index: 10000;
 }
 .navbaritems img {
   width: 100px;
@@ -125,7 +125,6 @@ header {
 }
 #hamburger-nav {
   position: relative;
-  z-index: 9999;
 }
 .hamburger-icon {
   display: flex;
@@ -250,7 +249,13 @@ header {
 .hamburger-icon span:first-child {
   transform: none;
 }
-
+.hamburger-menu,
+#hamburger-nav,
+.hamburger-icon,
+.menu-links {
+  z-index: 10001;
+  position: relative;
+}
 /*home Section */
 .home {
   display: flex;
