@@ -225,6 +225,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeBtn.addEventListener("click", closeLightbox);
 
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        lightboxImg.src = items[currentIndex].src;
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % items.length;
+        lightboxImg.src = items[currentIndex].src;
+    });
+
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
             closeLightbox();
@@ -273,6 +285,18 @@ lightboxImg.addEventListener("touchend", () => {
     if (scale < 1.05) {
         scale = 1;
         lightboxImg.style.transform = "scale(1)";
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (lightbox.classList.contains("show")) {
+        if (e.key === "ArrowLeft") {
+            prevBtn.click();
+        } else if (e.key === "ArrowRight") {
+            nextBtn.click();
+        } else if (e.key === "Escape") {
+            closeLightbox();
+        }
     }
 });
 

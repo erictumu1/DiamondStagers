@@ -42,7 +42,7 @@ header {
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .navbar {
@@ -293,7 +293,10 @@ header {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
   z-index: 2;
 }
-
+.home-bg,
+.home-overlay {
+  z-index: 0 !important;
+}
 .home-grid {
   position: relative;
   z-index: 10;
