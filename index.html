@@ -105,31 +105,38 @@
             <span></span><span></span><span></span>
           </div>
           <div class="menu-links">
-            <ul>
-              <li>
-                <a href="#home" class="nav-link" onclick="togglemenu()">Home</a>
-              </li>
-              <li>
-                <a href="#about" class="nav-link" onclick="togglemenu()"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a href="#services" class="nav-link" onclick="togglemenu()"
-                  >Services</a
-                >
-              </li>
-              <li>
-                <a href="#stagings" class="nav-link" onclick="togglemenu()"
-                  >Stagings</a
-                >
-              </li>
-              <li>
-                <a href="#contact" class="nav-link" onclick="togglemenu()"
-                  >Contact</a
-                >
-              </li>
+            <ul class="menu-main">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#stagings">Stagings</a></li>
+              <li><a href="#footer">Contact Us</a></li>
             </ul>
+
+            <div class="menu-extra">
+              <div class="socials">
+                <a
+                  href="https://www.facebook.com/diamondstagers/"
+                  target="_blank"
+                  class="facebook"
+                >
+                  <i class="bx bxl-facebook"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/diamondd.stagers/?hl=en"
+                  target="_blank"
+                  class="instagram"
+                >
+                  <i class="bx bxl-instagram"></i>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@diamondstagers"
+                  target="_blank"
+                >
+                  <i class="bx bxl-tiktok"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -644,7 +651,7 @@
         <h2 class="contact-me">Ready to transform your space?</h2>
         <h2 class="visually-off">Contact Our Toronto Home Staging Team</h2>
 
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form id="contactForm">
           <div class="input-box fadein">
             <input
               type="text"
@@ -685,6 +692,10 @@
           <input type="submit" value="Send Message" class="btn-1 fadein" />
         </form>
       </section>
+      <div id="formSuccess" class="popup success-popup"
+        >Form submitted successfully. We will get back to you Shortly.</div
+      >
+      <div id="formError" class="popup error-popup">Something went wrong</div>
     </main>
 
     <footer class="footer" id="footer">

@@ -14,12 +14,23 @@ function checkFade() {
 }
 
 window.addEventListener('scroll', checkFade);
-window.addEventListener('load', checkFade);
+// window.addEventListener('load', checkFade);
 
 function togglemenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
-    menu.classList.toggle("show");
+
+    if (menu.classList.contains("show")) {
+        menu.classList.remove("show");
+        menu.classList.add("closing");
+
+        setTimeout(() => {
+            menu.classList.remove("closing");
+        }, 400);
+    } else {
+        menu.classList.add("show");
+    }
+
     icon.classList.toggle("open");
 }
 
@@ -52,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    menuItems.forEach((item) => {
+    document.querySelectorAll(".menu-main a, .navbar li a, .scroll-down").forEach((item) => {
         item.addEventListener("click", function (event) {
             event.preventDefault();
 
@@ -61,11 +72,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: "smooth" });
-                menuItems.forEach((link) => link.classList.remove("active"));
-                this.classList.add("active");
+            }
+
+            // close menu if open
+            const menu = document.querySelector(".menu-links");
+            const icon = document.querySelector(".hamburger-icon");
+
+            if (menu.classList.contains("show")) {
+                menu.classList.remove("show");
+                icon.classList.remove("open");
             }
         });
     });
+
 
     window.addEventListener("load", setActiveLink);
     window.addEventListener("scroll", setActiveLink);
@@ -151,10 +170,8 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+// window.addEventListener("load", revealOnScroll);
 
-
-window.addEventListener("scroll", revealOnScroll);
 
 // Request a Quote button smooth scroll
 document.querySelectorAll(".request-quote").forEach(button => {
@@ -182,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
 
     function showLightbox(index) {
-        lightbox.style.display = "block";
+        lightbox.style.display = "flex";
         lightboxImg.src = items[index].src;
         currentIndex = index;
     }
@@ -205,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
         lightboxImg.src = items[currentIndex].src;
     });
 
-    // Close when clicking outside image
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
             lightbox.style.display = "none";
@@ -213,6 +229,100 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+window.addEventListener("orientationchange", () => {
+    if (lightbox.style.display === "flex") {
+        lightboxImg.style.maxWidth = "90%";
+        lightboxImg.style.maxHeight = "90%";
+    }
+});
 
+
+let scale = 1;
+let startDistance = 0;
+
+function getDistance(touches) {
+    const [touch1, touch2] = touches;
+    const dx = touch1.clientX - touch2.clientX;
+    const dy = touch1.clientY - touch2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+lightboxImg.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 2) {
+        startDistance = getDistance(e.touches);
+    }
+});
+
+lightboxImg.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 2) {
+        e.preventDefault();
+        const newDistance = getDistance(e.touches);
+        const pinchScale = newDistance / startDistance;
+
+        scale = Math.min(Math.max(1, scale * pinchScale), 4); // limit between 1x–4x
+        lightboxImg.style.transform = `scale(${scale})`;
+
+        startDistance = newDistance;
+    }
+});
+
+lightboxImg.addEventListener("touchend", () => {
+    if (scale < 1.05) {
+        scale = 1;
+        lightboxImg.style.transform = "scale(1)";
+    }
+});
+
+
+//Script for successfully form submission pop up
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const successPopup = document.getElementById("formSuccess");
+    const errorPopup = document.getElementById("formError");
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            form.reset();
+
+            // Reset + show success popup
+            successPopup.classList.remove("hide");
+            successPopup.classList.add("show");
+
+            setTimeout(() => {
+                successPopup.classList.remove("show");
+                successPopup.classList.add("hide");
+            }, 3000);
+
+        } else {
+            // Show error popup
+            errorPopup.classList.remove("hide");
+            errorPopup.classList.add("show");
+
+            setTimeout(() => {
+                errorPopup.classList.remove("show");
+                errorPopup.classList.add("hide");
+            }, 3000);
+        }
+    } catch (error) {
+        // Show error popup if fetch fails
+        errorPopup.classList.remove("hide");
+        errorPopup.classList.add("show");
+
+        setTimeout(() => {
+            errorPopup.classList.remove("show");
+            errorPopup.classList.add("hide");
+        }, 3000);
+    }
+});
 
 document.getElementById("year").textContent = new Date().getFullYear();
