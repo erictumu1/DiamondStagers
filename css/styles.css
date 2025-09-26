@@ -139,7 +139,7 @@ header {
   top: 100%;
   left: 0;
   right: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 0 0 12px 12px;
   box-shadow: none !important;
   border: none !important;

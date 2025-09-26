@@ -199,32 +199,35 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
 
     function showLightbox(index) {
-        lightbox.style.display = "flex";
         lightboxImg.src = items[index].src;
         currentIndex = index;
+
+        lightbox.classList.add("show");
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove("show");
+
+        // Wait for transition to finish before hiding fully
+        setTimeout(() => {
+            if (!lightbox.classList.contains("show")) {
+                lightbox.style.display = "none";
+            }
+        }, 400); // match CSS transition
     }
 
     items.forEach((img, index) => {
-        img.addEventListener("click", () => showLightbox(index));
+        img.addEventListener("click", () => {
+            lightbox.style.display = "flex"; // prepare before fade-in
+            requestAnimationFrame(() => showLightbox(index));
+        });
     });
 
-    closeBtn.addEventListener("click", () => {
-        lightbox.style.display = "none";
-    });
-
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        lightboxImg.src = items[currentIndex].src;
-    });
-
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        lightboxImg.src = items[currentIndex].src;
-    });
+    closeBtn.addEventListener("click", closeLightbox);
 
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
-            lightbox.style.display = "none";
+            closeLightbox();
         }
     });
 });
@@ -270,38 +273,6 @@ lightboxImg.addEventListener("touchend", () => {
     if (scale < 1.05) {
         scale = 1;
         lightboxImg.style.transform = "scale(1)";
-    }
-});
-
-function showLightbox(index) {
-    lightboxImg.src = items[index].src;
-    currentIndex = index;
-
-    lightbox.classList.add("show");
-}
-
-function closeLightbox() {
-    lightbox.classList.remove("show");
-
-    setTimeout(() => {
-        if (!lightbox.classList.contains("show")) {
-            lightbox.style.display = "none";
-        }
-    }, 400);
-}
-
-items.forEach((img, index) => {
-    img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        requestAnimationFrame(() => showLightbox(index));
-    });
-});
-
-closeBtn.addEventListener("click", closeLightbox);
-
-lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-        closeLightbox();
     }
 });
 
