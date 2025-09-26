@@ -195,6 +195,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .eric-tumu {
+    font-size: 6px;
+  }
   .scroll-down::before {
     content: "↓";
     position: absolute;
